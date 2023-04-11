@@ -2,6 +2,7 @@ import { Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
+import { addToFavoritesAction, removeFromFavoritesAction } from "../redux/actions";
 
 const Job = ({ data }) => {
   const dispatch = useDispatch();
@@ -17,9 +18,9 @@ const Job = ({ data }) => {
             variant="white"
             onClick={() => {
               if (marked) {
-                dispatch({ type: "REMOVE_FROM_FAVORITES", payload: data._id });
+                dispatch(removeFromFavoritesAction(data._id));
               } else {
-                dispatch({ type: "ADD_TO_FAVORITES", payload: data });
+                dispatch(addToFavoritesAction(data));
               }
               setMarked(!marked);
             }}

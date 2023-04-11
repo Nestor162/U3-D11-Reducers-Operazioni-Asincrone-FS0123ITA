@@ -1,19 +1,20 @@
 import { Container, ListGroup } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
+import { removeFromFavoritesAction } from "../redux/actions";
 
 const Favorites = () => {
   const favorites = useSelector(state => state.favorites);
-  console.log(favorites);
+  console.log(typeof favorites, favorites);
   const dispatch = useDispatch();
   return (
     <Container className="mt-4">
       <h1>Aziende preferite</h1>
       <ListGroup>
-        {favorites.map((favorite, i) => {
+        {favorites.favorites.map((favorite, i) => {
           return (
             <ListGroup.Item key={favorite._id} className="d-flex justify-content-between">
               <span>{favorite.company_name}</span>
-              <span onClick={() => dispatch({ type: "REMOVE_FROM_FAVORITES", payload: favorite._id })}>
+              <span onClick={() => dispatch(removeFromFavoritesAction(favorite._id))}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"

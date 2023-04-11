@@ -35,6 +35,7 @@ const MainSearch = () => {
       <Button
         variant="warning"
         className="position-fixed favoriteButton"
+        style={{ zIndex: "2" }}
         onClick={() => {
           navigate("/favorites");
         }}
