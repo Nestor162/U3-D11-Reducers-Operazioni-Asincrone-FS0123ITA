@@ -1,6 +1,6 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import favoritesReducer from "../reducers/favoritesReducer";
-import resultReducer from "../reducers/resultsReducer";
+import resultReducer from "../reducers/jobsReducer";
 
 const mainReducer = combineReducers({
   favorites: favoritesReducer,
